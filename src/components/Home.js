@@ -8,7 +8,7 @@ const Home = () => {
     useEffect( ()=>{
         dispatch(fetchAPI())
     },[] )
-   
+    
     
     if(loading){
         return(
@@ -17,17 +17,20 @@ const Home = () => {
                 height:"100vh",
                 justifyContent:"center",
                 alignItems:"center",
-                
+                fontSize:"40px"
             }}>
                 Fetching Data.....
             </div>
         )
     }
+    if(error){
+        <p> {error} </p>
+    }
     return ( 
         <div className='Home'>
             {
                 data&&data?.products?.map( (product)=>(
-                    <ItemCard product={product} />
+                    <ItemCard product={product} cartBtn ={true} />
                 ) )
             }
         </div>

@@ -1,9 +1,10 @@
 import React from 'react';
 
 import { useDispatch,useSelector } from 'react-redux';
-import { addToCart } from '../redux/actions/cartAction';
-const ItemCard = ( {product} ) => {
+import { addToCart,removeFromCart } from '../redux/actions/cartAction';
+const ItemCard = ( {product,cartBtn} ) => {
     const cartData = useSelector(state=>state.cart);
+    
     
     const dispatch = useDispatch();
     function handleCart(product){
@@ -11,7 +12,9 @@ const ItemCard = ( {product} ) => {
         if(!isAlreadyInCart) dispatch(addToCart( product))    
     }
     
-    
+    function removeItem(product){
+        dispatch(removeFromCart(product.id))
+    }
     return ( 
         <div className='Card' key={product.id}>
             <div className='image'>
@@ -26,15 +29,9 @@ const ItemCard = ( {product} ) => {
                 Title : {product?.title}<br/>
                 Price : ${product?.price}
             </div>
-            <button onClick={()=>handleCart(product) }>Add To Cart</button>
+            {<button onClick={()=>cartBtn?handleCart(product):removeItem(product) }>{cartBtn?"Add To Cart":"Remove From Cart"}</button>}
         </div>
      );
 }
  
 export default ItemCard;
-
-// 
-
-// 
-
-// 9.99

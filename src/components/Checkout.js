@@ -4,9 +4,9 @@ import { checkout } from '../redux/actions/cartAction';
 
 const Checkout = () => {
     const data = useSelector(state=>state.cart);
-    
-    
+
     const dispatch = useDispatch();
+    
     function handleCheckout(){
         
         dispatch(checkout())
@@ -26,7 +26,7 @@ const Checkout = () => {
                 }
             </ol>
             <span> Total : {
-                data?data.reduce((total,item)=>total+item.price,0):0
+                data?data.reduce((total,item)=>+(total+item.price).toFixed(2),0):0
                 } 
             </span>
             <br/>
