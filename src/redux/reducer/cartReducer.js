@@ -1,0 +1,22 @@
+import { ADD_TO_CART,REMOVE_FROM_CART,CHECKOUT } from "../actions/actions"
+
+const initialState =[]
+
+function cartReducer(state=initialState,action){
+    switch(action.type){
+        case ADD_TO_CART:
+            return (
+                state?.filter((item)=>{
+                    return item.id!==action.payload.id
+                })
+            );
+        case REMOVE_FROM_CART:
+            return state.filter(item=>item.id!==action.payload);
+        case CHECKOUT:
+            return initialState;
+        default:
+            return state;
+    }
+}
+
+export default cartReducer;
