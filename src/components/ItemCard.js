@@ -1,15 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch,useSelector } from 'react-redux';
 import { addToCart } from '../redux/actions/cartAction';
-const ItemCard = ( {product,cartBtn} ) => {
-    // const [btn,setBtn] = useState(false)
+const ItemCard = ( {product} ) => {
+    const cartData = useSelector(state=>state.cart);
+    
     const dispatch = useDispatch();
     function handleCart(product){
-        
-        dispatch(addToCart(product));
-       
-        
+        let isAlreadyInCart = cartData.find(item=>item.id===product.id) 
+        if(!isAlreadyInCart) dispatch(addToCart( product))    
     }
     
     
@@ -18,8 +17,9 @@ const ItemCard = ( {product,cartBtn} ) => {
             <div className='image'>
                 <img src={product?.images[0]}
                  alt={product?.title}
-                  style={{width:"200px",
-                            height:"200px"
+                  style={{
+                    width:"200px",
+                    height:"200px"
                   }}/>
             </div>
             <div className='t&p'>
