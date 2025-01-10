@@ -12,7 +12,7 @@ const Checkout = () => {
         dispatch(checkout())
     }
     return ( 
-        <div className="checkout">
+        <div className="Checkout">
             <ol>
                 {
                     data&&data.map(item=>(

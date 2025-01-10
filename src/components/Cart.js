@@ -5,16 +5,13 @@ import Checkout from "./Checkout";
 const Cart = () => {
   let data= useSelector(state=>state.cart);
   
-  // if(localStorage.getItem("data")){
-  //   data=(localStorage.getItem("data"))
-  //  console.log(data);
-   
-    
-  // }
+  if(localStorage.getItem("data")){
+    data=JSON.parse(localStorage.getItem("data")) 
+  }
   
-  // if(data){
-  //   localStorage.setItem("data",JSON.stringify(data))
-  // }
+  if(data){
+    localStorage.setItem("data",JSON.stringify(data))
+  }
     return (
         <div className="Cart">
           <div className="cart-data">

@@ -21,4 +21,66 @@
 .Home{
     display: grid;
     grid-template-columns: auto auto auto auto;
+    gap:40px;
+}
+
+.Card{
+    .image{
+        img{
+            width:200px;
+            height: 200px;
+            object-fit:contain;
+        }
+    }
+    button{
+        background-color: black;
+        padding: 10px;
+        margin-top:5px;
+        border:none;
+        outline: none;
+        color:white;
+        width:100%;
+        cursor:pointer;
+        &:active{
+            transform: scale(0.99);
+        }
+    }
+}
+
+.Cart{
+    
+    display: grid;
+    grid-template-columns: auto auto ;
+    gap: 20px;
+    .cart-data{
+        display: grid;
+        grid-template-columns: auto auto auto;
+        gap:30px;
+        padding:10px;
+    }
+}
+
+.Checkout{
+    background-color: black;
+    color:white;
+    margin-top: 20px;
+    border-radius: 15px;
+    padding:10px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* max-height: 400px; */
+    ol{
+        color:white;
+        /* border:1px solid white; */
+        /* margin: 0; */
+        padding: 0;
+        li{
+            list-style:decimal;
+            line-height: 50px;
+            color:white;
+            display: flex;
+            justify-content: space-between;
+        }
+    }
 }

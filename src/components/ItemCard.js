@@ -20,10 +20,7 @@ const ItemCard = ( {product,cartBtn} ) => {
             <div className='image'>
                 <img src={product?.images[0]}
                  alt={product?.title}
-                  style={{
-                    width:"200px",
-                    height:"200px"
-                  }}/>
+                  />
             </div>
             <div className='t&p'>
                 Title : {product?.title}<br/>
