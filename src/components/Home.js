@@ -28,11 +28,14 @@ const Home = () => {
     }
     return ( 
         <div className='Home'>
+            <div className='title'>All Items</div>
+            <div className='data'>
             {
                 data&&data?.products?.map( (product)=>(
                     <ItemCard product={product} cartBtn ={true} />
                 ) )
             }
+            </div>
         </div>
      );
 }

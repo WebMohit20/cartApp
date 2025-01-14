@@ -17,8 +17,21 @@
         margin-right: 10px;
     }
 }
-
 .Home{
+    display: flex;
+    flex-direction: column;
+}
+.title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+    padding:10px 0;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+.data{
     display: grid;
     grid-template-columns: auto auto auto auto;
     gap:40px;
@@ -47,10 +60,16 @@
     }
 }
 
+
 .Cart{
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-page{
     
     display: grid;
-    grid-template-columns: auto auto ;
+    grid-template-columns: auto 600px ;
     gap: 20px;
     .cart-data{
         display: grid;
@@ -69,11 +88,8 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    /* max-height: 400px; */
     ol{
         color:white;
-        /* border:1px solid white; */
-        /* margin: 0; */
         padding: 0;
         li{
             list-style:decimal;

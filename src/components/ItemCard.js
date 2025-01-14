@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { useDispatch,useSelector } from 'react-redux';
 import { addToCart,removeFromCart } from '../redux/actions/cartAction';
 const ItemCard = ( {product,cartBtn} ) => {
@@ -8,8 +7,10 @@ const ItemCard = ( {product,cartBtn} ) => {
     
     const dispatch = useDispatch();
     function handleCart(product){
-        let isAlreadyInCart = cartData.find(item=>item.id===product.id) 
-        if(!isAlreadyInCart) dispatch(addToCart( product))    
+        let isAlreadyInCart = cartData.find(item=>item.id===product.id)
+        if(!isAlreadyInCart){
+           dispatch(addToCart( product)) 
+        } 
     }
     
     function removeItem(product){

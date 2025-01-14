@@ -3,22 +3,26 @@ import { useSelector,useDispatch } from 'react-redux';
 import { checkout } from '../redux/actions/cartAction';
 
 const Checkout = () => {
-    const data = useSelector(state=>state.cart);
-
-    const dispatch = useDispatch();
+    let data = useSelector(state=>state.cart);
     
+    const dispatch = useDispatch();
+    // const localData = JSON.parse(localStorage.getItem("data"));
+    // if(localData){
+    //     data=localData;
+    // }
     function handleCheckout(){
-        
+        // localStorage.setItem("data",JSON.stringify([]));
         dispatch(checkout())
     }
     return ( 
         <div className="Checkout">
             <ol>
                 {
-                    data&&data.map(item=>(
+                    data&&data.map((item,index)=>(
                         
                         <li key={item.id}> 
-                            <span> {item.title} </span>
+                            
+                            <span>{`${index+1}.  ${ item.title}`} </span>
                             <span> ${item.price} </span>
                         </li>
                     ))

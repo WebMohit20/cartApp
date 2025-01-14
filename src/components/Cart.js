@@ -4,24 +4,30 @@ import ItemCard from "./ItemCard";
 import Checkout from "./Checkout";
 const Cart = () => {
   let data= useSelector(state=>state.cart);
+  // if(data.length){
+  //   localStorage.setItem("data",JSON.stringify(data))
+  // }
+
+  // const localData = JSON.parse(localStorage.getItem("data"))
+
+  // if(localData){
+  //   data = localData;
+  // }
   
-  if(localStorage.getItem("data")){
-    data=JSON.parse(localStorage.getItem("data")) 
-  }
   
-  if(data){
-    localStorage.setItem("data",JSON.stringify(data))
-  }
     return (
         <div className="Cart">
-          <div className="cart-data">
-              {
-                data.length>0&&data.map((product)=>(
-                  <ItemCard product={product} cartBtn = {false}/>
-                ))
-              }
+          <div className='title'>Cart</div>
+          <div className="cart-page">
+            <div className="cart-data">
+                {
+                  data.length>0&&data.map((product)=>(
+                    <ItemCard product={product} cartBtn = {false}/>
+                  ))
+                }
+              </div>
+              <Checkout />
             </div>
-            <Checkout />
         </div>
       );
 }
